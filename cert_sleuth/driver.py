@@ -1,7 +1,7 @@
 import requests
 from termcolor import colored, cprint
 import methods
-from cert_sleuth import config
+import config
 
 banner = r"""                         __      _________ .__                       __    .__      
   ____     ____   _______  _/  |_   /   _____/ |  |     ____    __ __  _/  |_  |  |__   
@@ -66,7 +66,7 @@ def main():
 
 
     else:
-        cprint(f"[-] No websites (dead or alive) found for {args.domain}", "red")
+        cprint(f"[-] No websites (dead or alive) found for {config.args.domain}", "red")
         cprint(f"[-] Please try again! Usually this signals an error.. contact jsuess@utsystem.edu :(", color="red")
 
 

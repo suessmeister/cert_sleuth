@@ -1,6 +1,6 @@
 import socket
 from termcolor import colored, cprint
-from cert_sleuth import config
+import config
 
 
 def scan_alive(sites):
