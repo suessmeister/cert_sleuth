@@ -15,16 +15,15 @@ _/ ___\  _/ __ \  \_  __ \ \   __\  \_____  \  |  |   _/ __ \  |  |  \ \   __\ |
     Created by Joseph Suess, 6/20/2024. Last modified: 6/26/2024.
     
     Company Use: University of Texas System - Office of Information Security.
-    Inspired by Dru Banks @ Blue Cord Security.
     
-        For Legal and Ethical Use Only, Author assumes no responsibility for misuse.
+    For Legal and Ethical Use Only, Author assumes no responsibility for misuse.
 """
 
 
 
 
 
-# Original Method from CertSPY aimed to get the subdomains of the iterated domain.
+# Credit to Dru Banks for the majority of this method.  It used to get the subdomains of the iterated domain.
 # I have changed it to pull the name values of each domain instead. This gives way more scope!
 def get_names(domain):
     cprint("[+] Getting the common names...", "green")
@@ -67,7 +66,8 @@ def main():
 
     else:
         cprint(f"[-] No websites (dead or alive) found for {config.args.domain}", "red")
-        cprint(f"[-] Please try again! Usually this signals an error.. contact jsuess@utsystem.edu :(", color="red")
+        cprint(f"[-] Please try again! Usually this signals the site crt.sh is down OR a typo in the -d flag"
+               f".. contact jsuess@utsystem.edu :(", color="red")
 
 
 if __name__ == "__main__":
