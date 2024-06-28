@@ -10,6 +10,8 @@ final GUI is displayed on a static HTTP server developed with flask, with clicka
 
 hope this tools helps your efforts, both offensive and defensive. i do not assume any responsibility from misuse of the program. god bless! 
 
--d : specifiy the domain name to look at. (REQUIRED)
--s: specifiy the speed of the scan. more common than not, you should set this value to 1, but the option to increase the depth is there. try not to exceed 4. (REQUIRED)
--v: verbose output on the scans. (OPTIONAL)
+flags -->  
+
+**-d** : specifiy the domain name to look at. (REQUIRED)  
+**-s**: specifiy the speed of the scan. more common than not, you should set this value to 1, but the option to increase the depth is there. try not to exceed 4. (REQUIRED)  
+**-v**: verbose output on the scans. (OPTIONAL)  
