@@ -1,20 +1,33 @@
-A practice often forgotten by penetration testers and ethical hackers alike is the use of website certificates as a tool of reconnassiance. SSL and TLS certificates are public information and organizations almost always have a plethora of these registered under their common domain name. This opens up the doors for many reconnassiance possibilities and endpoints that might have been missed!  
+# Cert Sleuth: Instant Reconnaissance with SSL/TLS Certificates
 
-This is where cert sleuth comes in. With it comes a comprehensive tool that will immidiately give both users and organizations **instantaneous reconnassiance** on domains and ports of their choosing. In just 5 minutes, you will know which sites are running and which can provide an entryway to further exploitation.   
+Cert Sleuth is a powerful tool designed to leverage SSL/TLS certificates for comprehensive reconnaissance of domains and ports within minutes. It utilizes publicly available certificate information from crt.sh, providing users and organizations with valuable insights into their digital footprint.
 
-It relies on the the crt.sh website, parses the json results, then returns a comprehensive list of all names associated with the entered domain. 
+## Key Features
 
-The user is then prompted to select ports of which to perform reconnassiance on. These will typically be 80 or 443 (http/https servers) though the option to include whichever ports necessary are there.   
+- **Certificate Parsing**: Cert Sleuth fetches and parses JSON results from crt.sh to compile a comprehensive list of all names associated with the specified domain.
+  
+- **Port Selection**: Users can select specific ports (e.g., 80, 443) for reconnaissance. This helps identify active HTTP and HTTPS servers, among others.
 
-Socket connections are established to find which servers are running said services.  
+- **Socket Connections**: Establishes socket connections to determine which servers are running on the selected ports, facilitating quick identification of potential entry points for further exploitation.
 
-Final GUI is displayed on a static HTTP server developed with flask, with clickable links for each of the alive sites.  
+- **Interactive GUI**: Displays results on a static HTTP server developed with Flask, featuring clickable links for each live site discovered during the scan.
 
-Hope this tools helps your efforts, both offensive and defensive. I do not assume any responsibility from misuse of the program. 
-May God bless you!  
+## Usage
 
-flags -->  
+To use Cert Sleuth effectively, use the following command line flags:
 
-**-d** : specifiy the domain name to look at. (REQUIRED)  
-**-s**: specifiy the speed of the scan. more common than not, you should set this value to 1, but the option to increase the depth is there. try not to exceed 4. (REQUIRED)  
-**-v**: verbose output on the scans. (OPTIONAL)  
+- **-d**: Specify the domain name to analyze (REQUIRED).
+- **-s**: Set the speed of the scan (1-4, higher values for deeper scans) (REQUIRED).
+- **-v**: Enable verbose output for detailed scan information (OPTIONAL).
+
+## Disclaimer
+
+Cert Sleuth is intended for ethical purposes only, aimed at improving both offensive and defensive security efforts. Misuse of this tool is not condoned, and the developer assumes no responsibility for any unauthorized or malicious use.
+
+## Installation and Dependencies
+
+Cert Sleuth requires Python and Flask. Install dependencies using:
+
+```bash
+pip install flask
+
