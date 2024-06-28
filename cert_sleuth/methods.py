@@ -1,7 +1,9 @@
 import socket
 from termcolor import colored, cprint
 import config
+import sys
 
+global alive_sites
 
 def get_ports():
     cprint(f"[*] Which ports do you want to test? (Use 80 and 443 for webservers).", color='green')
@@ -30,13 +32,13 @@ def scan_alive(sites):
                 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 client_socket.settimeout(int(config.get_args().speed))
                 try:
+                    str = colored(f"{site_counter}/{len(sites)} checked...", color="red")
+                    print('\r' + str, end='', flush=True)
                     client_socket.connect((site, port))
                     alive_sites.update({site: port})
                     cprint(f"[!] {site} is alive on port {port}!!", color="cyan")
                 except socket.error as e:
                     # cprint(f"[-] {site} is dead on port {port}! :(", color="red")
-                    str = colored(f"{site_counter}/{len(sites)} checked...", color="red")
-                    print('\r' + str, end='', flush=True)
                     client_socket.close()
 
 
@@ -45,12 +47,18 @@ def scan_alive(sites):
         for alive_site in alive_sites:
             cprint(alive_site, color="yellow")
 
+        return alive_sites
 
     except Exception as e:
         cprint(f"[-] An unknown error occurred. Error: {e} "
                f"Contact jsuess@utsystem.edu for more", color='red')
 
+
 # Placeholder for now.
 def aggregate_results():
-    return 0
+    try:
+        print(alive_sites)
+    except Exception as e:
+        cprint(f"[-] An unknown error occurred. Error: {e} "
+               f"Contact jsuess@utsystem.edu for more", color='red')
 

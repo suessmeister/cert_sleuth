@@ -5,8 +5,7 @@ import argparse
 
 # We must keep track of the arguments the user provides! This is imperative.
 
-# Original Method from CertSPY. No modifications needed. Credit to Dru Banks.
-# Forces the user to give a domain in their argument.
+# Forces the user to give a domain in their argument. Speed of scan must also be defined.
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--domain', required=True, help='Website to enumerate')
