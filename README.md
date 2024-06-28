@@ -30,7 +30,7 @@ Cert Sleuth runs with driver.py. Once the tool is installed, only driver.py will
 
 Requirements:
 
-Python version 3.7+
+Python version 3.7+  
 Flask
 
 
