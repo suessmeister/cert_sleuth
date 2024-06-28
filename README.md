@@ -12,13 +12,13 @@ Cert Sleuth is a powerful tool designed to leverage SSL/TLS certificates for com
 
 - **Interactive GUI**: Displays results on a static HTTP server developed with Flask, featuring clickable links for each live site discovered during the scan.
 
-## Usage
+## Flags
 
 To use Cert Sleuth effectively, use the following command line flags:
 
-- **-d**: Specify the domain name to analyze (REQUIRED).
-- **-s**: Set the speed of the scan (1-4, higher values for deeper scans) (REQUIRED).
-- **-v**: Enable verbose output for detailed scan information (OPTIONAL).
+- **-d**: Specify the domain name to analyze _(REQUIRED)._
+- **-s**: Set the speed of the scan (1-4, higher values for deeper scans) _(REQUIRED)._
+- **-v**: Enable verbose output for detailed scan information _(OPTIONAL)._
 
 ## Disclaimer
 
