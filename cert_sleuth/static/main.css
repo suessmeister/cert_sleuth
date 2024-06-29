@@ -1,0 +1,37 @@
+/* Reset default browser styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the list of links */
+ul {
+    list-style-type: none;
+    padding: 20px;
+}
+
+/* Style for each list item */
+li {
+    margin-bottom: 10px;
+}
+
+/* Style for clickable links */
+li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+li a:hover {
+    color: #007bff; /* Change to your preferred hover color */
+}
+
+/* Optional: Add some spacing or decoration */
+hr {
+    margin-top: 20px;
+    border: none;
+    border-top: 1px solid #ccc;
+}
