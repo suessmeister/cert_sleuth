@@ -1,7 +1,8 @@
 import requests
 from termcolor import colored, cprint
 import methods
-import config
+import argparse
+
 
 banner = r"""                         __      _________ .__                       __    .__      
   ____     ____   _______  _/  |_   /   _____/ |  |     ____    __ __  _/  |_  |  |__   
@@ -20,7 +21,18 @@ _/ ___\  _/ __ \  \_  __ \ \   __\  \_____  \  |  |   _/ __ \  |  |  \ \   __\ |
 """
 
 
+global args
 
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--domain', required=True, help='Website to enumerate')
+    parser.add_argument('-s', '--speed', required=True, help='Speed of scans(quick=1, '
+                                                  'slow=4. not recommend to go past 4.)')
+    parser.add_argument('-v', '--verbose', action='store_true', required=False, help='Verbose output on dead/alive websites')
+    arguments = parser.parse_args()
+    return arguments
+
+args = get_args()
 
 
 # Credit to Dru Banks for the majority of this method.  It used to get the subdomains of the iterated domain.
@@ -50,22 +62,26 @@ def get_names(domain):
 
 def main():
     print(banner)
-    sites = get_names(config.get_args().domain)
+    sites = get_names(args.domain)
     size = (len(sites))
     if sites:
-        cprint(f"[*] Dead and Alive websites of {config.args.domain}:", "green")
+        cprint(f"[*] Dead and Alive websites of {args.domain}:", "green")
         for site in sites:
             cprint(site, "yellow")
         cprint(f"[*] {size} unique names found.", color="green")
         answer = input(colored(f"[*] Would you like to only find running websites (y/n)? ", color="green"))
         if answer == 'y' or answer == 'yes':
-            methods.scan_alive(sites)
+            alive_sites = methods.scan_alive(sites, args.speed)
         else:
             cprint(f"[*] Would you like an output of this list in txt form? (y/n).", color="green")
 
+    try:
+        methods.aggregate_results()
+    except Exception as e:
+        cprint(f"[-] error generating the site...", color="red")
 
     else:
-        cprint(f"[-] No websites (dead or alive) found for {config.args.domain}", "red")
+        cprint(f"[-] No websites (dead or alive) found for {args.domain}", "red")
         cprint(f"[-] Please try again! Usually this signals the site crt.sh is down OR a typo in the -d flag"
                f".. contact jsuess@utsystem.edu :(", color="red")
 

@@ -5,6 +5,14 @@ body, ul {
     font-family: Arial, sans-serif;
 }
 
+header {
+    background-color: #007bff; /* Change to your preferred header background color */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Style for the list of links */
 ul {
     list-style-type: none;

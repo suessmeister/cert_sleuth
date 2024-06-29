@@ -1,9 +1,11 @@
 import socket
 from termcolor import colored, cprint
-import config
-import sys
+import time
+import subprocess
 
-global alive_sites
+alive_sites = {}
+start_time = None
+end_time = None
 
 def get_ports():
     cprint(f"[*] Which ports do you want to test? (Use 80 and 443 for webservers).", color='green')
@@ -19,8 +21,9 @@ def get_ports():
 
     return ports
 
-def scan_alive(sites):
-    alive_sites = {}
+def scan_alive(sites, speed):
+    global start_time, end_time, alive_sites
+    start_time = time.time()
     try:
         ports = get_ports()
         cprint(f"[*] Iterating through {len(sites)} sites on {ports} ports.", color='green')
@@ -30,7 +33,7 @@ def scan_alive(sites):
             for site in sites:
                 site_counter += 1
                 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                client_socket.settimeout(int(config.get_args().speed))
+                client_socket.settimeout(int(speed))
                 try:
                     str = colored(f"{site_counter}/{len(sites)} checked...", color="red")
                     print('\r' + str, end='', flush=True)
@@ -47,6 +50,7 @@ def scan_alive(sites):
         for alive_site in alive_sites:
             cprint(alive_site, color="yellow")
 
+        end_time = time.time()
         return alive_sites
 
     except Exception as e:
@@ -57,8 +61,10 @@ def scan_alive(sites):
 # Placeholder for now.
 def aggregate_results():
     try:
-        print(alive_sites)
+        subprocess.run(['python', 'app.py'])
+        print('successful')
     except Exception as e:
         cprint(f"[-] An unknown error occurred. Error: {e} "
                f"Contact jsuess@utsystem.edu for more", color='red')
+
 
