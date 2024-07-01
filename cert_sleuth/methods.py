@@ -19,7 +19,7 @@ def get_ports():
     return ports
 
 def scan_alive(sites, speed):
-    cfg.start_time = time.gmtime()
+    cfg.start_time = time.asctime(time.localtime())
     try:
         ports = get_ports()
         cprint(f"[*] Iterating through {len(sites)} sites on {ports} ports.", color='green')
@@ -42,23 +42,16 @@ def scan_alive(sites, speed):
 
 
         cprint(f"[*] {len( cfg.alive_sites)} alive sites found! ", color="green")
-        cprint(f"[*] The sites are: ", color="green")
-        for alive_site in  cfg.alive_sites:
-            cprint(alive_site, color="yellow")
+        # cprint(f"[*] The sites are: ", color="green")
+        # for alive_site in  cfg.alive_sites:
+        #     cprint(alive_site, color="yellow")
 
-        cfg.end_time = time.gmtime()
+        cfg.end_time = time.asctime(time.localtime())
 
     except Exception as e:
         cprint(f"[-] An unknown error occurred. Error: {e} "
                f"Contact jsuess@utsystem.edu for more", color='red')
 
 
-# Placeholder for now.
-# def aggregate_results():
-#     try:
-#         print('successful')
-#     except Exception as e:
-#         cprint(f"[-] An unknown error occurred. Error: {e} "
-#                f"Contact jsuess@utsystem.edu for more", color='red')
 
 

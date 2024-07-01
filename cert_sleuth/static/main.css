@@ -27,7 +27,7 @@ li {
 /* Style for clickable links */
 li a {
     text-decoration: none;
-    color: #333;
+    color: #2e0dfe
     font-size: 16px;
     transition: color 0.3s ease;
 }

@@ -11,7 +11,7 @@ _/ ___\  _/ __ \  \_  __ \ \   __\  \_____  \  |  |   _/ __ \  |  |  \ \   __\ |
  \___  >  \___  >  |__|     |__|   /_______  / |____/  \___  > |____/   |__|   |___|  / 
      \/       \/                           \/              \/                       \/  
 
-    ＣᗴＲ丅Ｓ⎳ＵᗴＴᕼ v. 1.0.5
+    ＣᗴＲ丅Ｓ⎳ＵᗴＴᕼ v. 1.1.0
 
     Created by Joseph Suess, 6/20/2024. Last modified: 7/1/2024.
     
@@ -20,17 +20,18 @@ _/ ___\  _/ __ \  \_  __ \ \   __\  \_____  \  |  |   _/ __ \  |  |  \ \   __\ |
     For Legal and Ethical Use Only, Author assumes no responsibility for misuse.
 """
 
-
 global args
+
 
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--domain', required=True, help='Website to enumerate')
     parser.add_argument('-s', '--speed', required=True, help='Speed of scans(quick=1, '
-                                                  'slow=4. not recommend to go past 4.)')
-    parser.add_argument('-v', '--verbose', action='store_true', required=False, help='Verbose output on dead/alive websites')
-    arguments = parser.parse_args()
-    return arguments
+                                                             'slow=4. not recommend to go past 4.)')
+    parser.add_argument('-v', '--verbose', action='store_true', required=False,
+                        help='Verbose output on dead/alive websites')
+    return parser.parse_args()
+
 
 args = get_args()
 
@@ -75,10 +76,6 @@ def main():
         else:
             cprint(f"[*] Would you like an output of this list in txt form? (y/n).", color="green")
 
-    try:
-        cprint('[+] site generation successful...! ')
-    except Exception as e:
-        cprint(f"[-] error generating the site...", color="red")
 
     else:
         cprint(f"[-] No websites (dead or alive) found for {args.domain}", "red")

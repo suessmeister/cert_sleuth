@@ -14,7 +14,7 @@ with app.app_context():
 
 @app.route("/")
 def test():
-    return render_template('index.html', start=cfg.start_time, end=cfg.end_time, sites=cfg.alive_sites)
+    return render_template('skeleton.html', start=cfg.start_time, end=cfg.end_time, sites=cfg.alive_sites)
 
 
 if __name__ == "__main__":
