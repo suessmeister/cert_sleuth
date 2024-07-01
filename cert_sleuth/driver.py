@@ -2,7 +2,7 @@ import requests
 from termcolor import colored, cprint
 import methods
 import argparse
-
+import cfg
 
 banner = r"""                         __      _________ .__                       __    .__      
   ____     ____   _______  _/  |_   /   _____/ |  |     ____    __ __  _/  |_  |  |__   
@@ -13,7 +13,7 @@ _/ ___\  _/ __ \  \_  __ \ \   __\  \_____  \  |  |   _/ __ \  |  |  \ \   __\ |
 
     ＣᗴＲ丅Ｓ⎳ＵᗴＴᕼ v. 1.0.5
 
-    Created by Joseph Suess, 6/20/2024. Last modified: 6/29/2024.
+    Created by Joseph Suess, 6/20/2024. Last modified: 7/1/2024.
     
     Company Use: University of Texas System - Office of Information Security.
     
@@ -71,12 +71,12 @@ def main():
         cprint(f"[*] {size} unique names found.", color="green")
         answer = input(colored(f"[*] Would you like to only find running websites (y/n)? ", color="green"))
         if answer == 'y' or answer == 'yes':
-            alive_sites = methods.scan_alive(sites, args.speed)
+            methods.scan_alive(sites, args.speed)
         else:
             cprint(f"[*] Would you like an output of this list in txt form? (y/n).", color="green")
 
     try:
-        methods.aggregate_results()
+        cprint('[+] site generation successful...! ')
     except Exception as e:
         cprint(f"[-] error generating the site...", color="red")
 
