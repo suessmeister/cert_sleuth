@@ -29,12 +29,14 @@ def scan_alive(sites, speed):
             for site in sites:
                 site_counter += 1
                 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                client_socket.settimeout(int(speed))
+                client_socket.settimeout(float(speed))
                 try:
-                    str = colored(f"{site_counter}/{len(sites)} checked...", color="red")
-                    print('\r' + str, end='', flush=True)
+                    _str = colored(f"{site_counter}/{len(sites)} checked...", color="red")
+                    print('\r' + _str, end='', flush=True)
                     client_socket.connect((site, port))
-                    cfg.alive_sites.update({site: port})
+                    if site not in cfg.alive_sites:
+                        cfg.alive_sites[site] = []
+                    cfg.alive_sites[site].append(port)
                     cprint(f"[!] {site} is alive on port {port}!!", color="cyan")
                 except socket.error as e:
                     # cprint(f"[-] {site} is dead on port {port}! :(", color="red")
