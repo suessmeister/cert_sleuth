@@ -1,7 +1,6 @@
 import socket
 from termcolor import colored, cprint
 import time
-import subprocess
 import cfg
 
 def get_ports():
@@ -43,7 +42,7 @@ def scan_alive(sites, speed):
                     client_socket.close()
 
 
-        cprint(f"[*] {len( cfg.alive_sites)} alive sites found! ", color="green")
+        cprint(f"[*] {len(cfg.alive_sites)} alive sites found! ", color="green")
         # cprint(f"[*] The sites are: ", color="green")
         # for alive_site in  cfg.alive_sites:
         #     cprint(alive_site, color="yellow")

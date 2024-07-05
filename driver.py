@@ -2,7 +2,6 @@ import requests
 from termcolor import colored, cprint
 import methods
 import argparse
-import cfg
 
 banner = r"""                         __      _________ .__                       __    .__      
   ____     ____   _______  _/  |_   /   _____/ |  |     ____    __ __  _/  |_  |  |__   
