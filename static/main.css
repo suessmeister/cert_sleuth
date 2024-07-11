@@ -1,4 +1,4 @@
-/* Reset default browser styles */
+# defining regular styles 
 body, ul {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@ body, ul {
 }
 
 header {
-    background-color: #007bff; /* Change to your preferred header background color */
+    background-color: #007bff;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -19,12 +19,12 @@ ul {
     padding: 20px;
 }
 
-/* Style for each list item */
+
 li {
     margin-bottom: 10px;
 }
 
-/* Style for clickable links */
+
 li a {
     text-decoration: none;
     color: #2e0dfe
@@ -32,12 +32,11 @@ li a {
     transition: color 0.3s ease;
 }
 
-/* Hover effect for links */
 li a:hover {
     color: #007bff; /* Change to your preferred hover color */
 }
 
-/* Optional: Add some spacing or decoration */
+
 hr {
     margin-top: 20px;
     border: none;
