@@ -35,7 +35,7 @@ def get_args():
 args = get_args()
 
 
-# Credit to Dru Banks for the majority of this method.  It used to get the subdomains of the iterated domain.
+# Method to get the subdomains of the iterated domain. Thanks for teaching me Dru Banks! 
 # I have changed it to pull the name values of each domain instead. This gives way more scope!
 def get_names(domain):
     cprint("[+] Getting the common names...", "green")
