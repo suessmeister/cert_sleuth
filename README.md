@@ -26,8 +26,7 @@ Cert Sleuth is intended for ethical purposes only, aimed at improving both offen
 
 ## Installation and Dependencies
 
-Cert Sleuth runs with driver.py. Once the tool is installed, only driver.py will need to be run, so the flags should attach to driver.py. 
-
+Cert Sleuth runs with cert_sleuth.py. Once the tool is installed, attach necessary flags here. 
 Requirements:
 
 Python version 3.7+  
