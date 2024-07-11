@@ -10,9 +10,9 @@ _/ ___\  _/ __ \  \_  __ \ \   __\  \_____  \  |  |   _/ __ \  |  |  \ \   __\ |
  \___  >  \___  >  |__|     |__|   /_______  / |____/  \___  > |____/   |__|   |___|  / 
      \/       \/                           \/              \/                       \/  
 
-    ＣᗴＲ丅Ｓ⎳ＵᗴＴᕼ v. 1.2.1
+    ＣᗴＲ丅Ｓ⎳ＵᗴＴᕼ v. 1.2.2
 
-    Created by Joseph Suess, 6/20/2024. Last modified: 7/1/2024.
+    Created by Joseph Suess, 6/20/2024. Last modified: 7/11/2024.
     
     Company Use: University of Texas System - Office of Information Security.
     
